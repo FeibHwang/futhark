@@ -206,7 +206,7 @@ internaliseStreamLambda internaliseLambda lam rowts = do
                                              ) (zip lamres rettype)
                 arrtype' <- mapM mkArrType lamarr_idtps
                 reses <- zipWithM assertProperShape arrtype' lamres
-                return $ resultBody reses
+                return $ resultBody lamres
   return $ I.ExtLambda (chunk_param:params) body' rettype
 
 -- Given @k@ lambdas, this will return a lambda that returns an
